@@ -31,7 +31,7 @@ while True:
     response = br.submit()
     #print response.read()
     
-    url = "http://www.hm.com/de/bag/add?artnr=556791&stockSize=005"
+    url = "http://www.hm.com/de/bag/add?artnr=560106&stockSize=036"
     response = br.open(url)
     url = "https://www.hm.com/de/checkout"
     response = br.open(url)
@@ -51,14 +51,14 @@ while True:
         el = root.cssselect("tfoot td span")[0].text.strip()
         price = float(el[2:])
         print temp2,price
-        if price < 33:
+        if price < 24:
             scraperwiki.sqlite.save(unique_keys=["Code"], data={"Code":count, "value":price})
         url = "https://www.hm.com/de/checkout/ordersummary/discountCode/remove?discountCode=" + temp2
         response = br.open(url)
         count = count + 1
         bcount = bcount + 1
         if bcount > 125:
-            url = "http://www.hm.com/de/bag/decreaseQty?artnr=818080&stockSize=305"
+            url = "http://www.hm.com/de/bag/decreaseQty?artnr=560106&stockSize=036"
             response = br.open(url)
             url = "http://www.hm.com/de/logout"
             response = br.open(url)
