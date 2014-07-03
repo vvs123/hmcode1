@@ -15,7 +15,7 @@ count = 1766
 
 while True:
     bcount = 0
-    url = "https://www.hm.com/gb/login"
+    url = "https://www.hm.com/de/login"
     response = br.open(url)
     
     #print "All forms:", [ form.name  for form in br.forms() ]
@@ -23,17 +23,17 @@ while True:
     br.select_form(name="customerLogin")
     #print br.form
     
-    br["username"] = "morth123"
-    br["password"] = "morth123"
+    br["username"] = "vvs123"
+    br["password"] = "1qay2wsx"
     
     
     
     response = br.submit()
     #print response.read()
     
-    url = "http://www.hm.com/gb/bag/add?artnr=555064&stockSize=038"
+    url = "http://www.hm.com/de/bag/add?artnr=556791&stockSize=005"
     response = br.open(url)
-    url = "https://www.hm.com/gb/checkout"
+    url = "https://www.hm.com/de/checkout"
     response = br.open(url)
     #print response.read()
     #print "All forms:", [ form.name  for form in br.forms() ]
@@ -53,14 +53,14 @@ while True:
         print temp2,price
         if price < 33:
             scraperwiki.sqlite.save(unique_keys=["Code"], data={"Code":count, "value":price})
-        url = "https://www.hm.com/gb/checkout/ordersummary/discountCode/remove?discountCode=" + temp2
+        url = "https://www.hm.com/de/checkout/ordersummary/discountCode/remove?discountCode=" + temp2
         response = br.open(url)
         count = count + 1
         bcount = bcount + 1
         if bcount > 125:
-            url = "http://www.hm.com/gb/bag/decreaseQty?artnr=818080&stockSize=305"
+            url = "http://www.hm.com/de/bag/decreaseQty?artnr=818080&stockSize=305"
             response = br.open(url)
-            url = "http://www.hm.com/gb/logout"
+            url = "http://www.hm.com/de/logout"
             response = br.open(url)
             break
     print "Good bye!"
