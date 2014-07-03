@@ -31,7 +31,7 @@ while True:
     response = br.submit()
     #print response.read()
     
-    url = "http://www.hm.com/gb/bag/add?artnr=818080&stockSize=305"
+    url = "http://www.hm.com/gb/bag/add?artnr=555064&stockSize=038"
     response = br.open(url)
     url = "https://www.hm.com/gb/checkout"
     response = br.open(url)
